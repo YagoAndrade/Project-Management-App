@@ -19,7 +19,7 @@ class ProjectsTest < ApplicationSystemTestCase
     fill_in "User", with: @project.user_id
     click_on "Create Project"
 
-    assert_text "Project was successfully created"
+    assert_text "Your project was successfully created"
     click_on "Back"
   end
 
@@ -32,7 +32,7 @@ class ProjectsTest < ApplicationSystemTestCase
     fill_in "User", with: @project.user_id
     click_on "Update Project"
 
-    assert_text "Project was successfully updated"
+    assert_text "Your project was successfully updated"
     click_on "Back"
   end
 
@@ -42,6 +42,6 @@ class ProjectsTest < ApplicationSystemTestCase
       click_on "Destroy", match: :first
     end
 
-    assert_text "Project was successfully destroyed"
+    assert_text "Your project was successfully destroyed"
   end
 end

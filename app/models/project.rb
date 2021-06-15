@@ -2,6 +2,10 @@ class Project < ApplicationRecord
   has_many :tasks, dependent: :delete_all
   belongs_to :user
 
+  def amount
+    return 'There are no active projects. Start one right now!' if projects.none?
+  end
+
   def badge_color
     case status
     when 'not-started'
@@ -12,7 +16,7 @@ class Project < ApplicationRecord
       'success'
     end
   end
-  
+
   def status
     return 'not-started' if tasks.none?
 

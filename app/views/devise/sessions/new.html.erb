@@ -1,26 +1,40 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="card">
+    <div class="card-body d-flex justify-content-center">
+      <h1 class="card-title display-6"> Log in </h1>
     </div>
-  <% end %>
+    <div class="card-body d-flex justify-content-center">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"mb-3 form-control" %>
+      </div>  
+      
+      <div class="field">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class:"mb-3 form-control" %>
+      </div>
 
-<%= render "devise/shared/links" %>
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+    </div>
+
+      <div class="actions d-flex justify-content-center">
+        <%= f.submit "Log in", class:"btn btn-primary" %>
+      </div>
+      <% end %>
+
+    <div class="card-body d-flex justify-content-center">
+      <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-link mb-3 text-decoration-none" %>
+      <%= link_to "Forgot your password?", new_password_path(resource_name), class: "btn btn-link mb-3 text-decoration-none" %>   
+    </div>
+</div>
+
+<!--
+
+-->

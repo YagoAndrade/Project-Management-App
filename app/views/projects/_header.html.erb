@@ -1,20 +1,26 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <%= link_to "ProjectADM", root_path, class: "navbar-brand" %>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to "Novo", new_project_path, class:"nav-link" %>
-        </li>
+<br>
+<header id="header" class="show-me">
+  <div class="wrapper-big is-inview">
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+      <div class="p-2">
+        <a href="/projects">
+          <%= image_tag("pma-logo-dark.png", :alt => "logo", width: "189px", height: "70px", padding: "0.75em") %>
+        </a>
+      </div>
 
-        <li class="nav-item">     
-          <%= link_to "Meus Amigos", projects_path, class: "nav-link" %>
-        </li>
+      <div class="p-2" style="width: 60%"></div>
 
-      </ul>
+      <div class="ml-auto p-2 h4">
+        <!--<div id="MyClockDisplay" class="clock" onload="showTime()"></div>-->
+      </div>    
+      <!--<div class="p-2">-->
+        <% if logged_in? %>
+          <button type="button" class="btn btn-light mb-2"><%= link_to "Log out", destroy_user_session_path, method: :delete, class:"text-decoration-none h6" %></button>
+        <% else %>
+          <button type="button" class="btn btn-light mb-2"><%= link_to "Log in", new_session_path(resource_name), class:"text-decoration-none h6" %></button>
+          <div></div>
+        <% end %>
+      <!--</div>-->
     </div>
   </div>
-</nav>
+</header>
